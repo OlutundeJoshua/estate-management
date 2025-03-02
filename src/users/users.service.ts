@@ -143,4 +143,5 @@ export class UsersService {
     const isMatch = await bcrypt.compare(password, hash);
     return isMatch;
   }
+  
 }
