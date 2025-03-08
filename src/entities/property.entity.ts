@@ -7,7 +7,7 @@ import {
   OneToOne,
 } from 'typeorm';
 import { TEntity } from './t-entity';
-import { PaymentStatus, PropertyCategory } from 'src/enums/enums';
+import { PaymentStatus, PropertyCategory } from '../enums/enums';
 import { Images } from './image.entity';
 import { User } from './users.entity';
 import { Location } from './location.entity';

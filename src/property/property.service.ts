@@ -1,11 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Property } from 'src/entities/property.entity';
-import { CreatePropertyDto } from 'src/models/dto/create-property.dto';
+import { Property } from '../entities/property.entity';
+import { CreatePropertyDto } from '../models/dto/create-property.dto';
 import {
   customErrorResponseWithCode,
   customSuccessResponseWithCode,
-} from 'src/models/lib/response.model';
+} from '../models/lib/response.model';
 import { Like, Repository } from 'typeorm';
 
 @Injectable()

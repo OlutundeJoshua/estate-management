@@ -1,11 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/entities/users.entity';
-import { CreateUserDto } from 'src/models/dto/create-user.dto';
+import { User } from '../entities/users.entity';
+import { CreateUserDto } from '../models/dto/create-user.dto';
 import {
   customErrorResponseWithCode,
   customSuccessResponseWithCode,
-} from 'src/models/lib/response.model';
+} from '../models/lib/response.model';
 import { Like, Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 

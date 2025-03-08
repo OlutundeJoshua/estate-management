@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm';
 import { TEntity } from './t-entity';
-import { PaymentStatus, TransactionStatus } from 'src/enums/enums';
+import { PaymentStatus, TransactionStatus } from '../enums/enums';
 
 @Entity()
 export class Transactions extends TEntity {

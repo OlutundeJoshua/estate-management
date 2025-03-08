@@ -1,5 +1,3 @@
-// export function customSuccessResponse()
-
 export function customSuccessResponseWithCode<Type = unknown>(
   message: string,
   payload: Type,

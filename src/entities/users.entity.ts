@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 import { TEntity } from './t-entity';
-import { UserType } from 'src/enums/enums';
+import { UserType } from '../enums/enums';
 import { Bank } from './bank.entity';
 import { Location } from './location.entity';
 

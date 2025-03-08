@@ -5,7 +5,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-import { UserType } from 'src/enums/enums';
+import { UserType } from '../../enums/enums';
 
 export class CreateUserDto {
   @IsString()

@@ -5,7 +5,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-import { PropertyCategory } from 'src/enums/enums';
+import { PropertyCategory } from '../../enums/enums';
 
 export class CreatePropertyDto {
   @IsString()
