@@ -111,9 +111,7 @@ describe('UsersService', () => {
     });
 
     it('should return an error if user already approved', async () => {
-      mockUserRepository.findOne = jest
-        .fn()
-        .mockResolvedValue({ userId: '123', approved: 1 });
+      mockUserRepository.findOne = jest.fn().mockResolvedValue({ userId: '123', approved: 1 });
 
       const result = await service.approveUser({ userId: '123' });
 
@@ -136,15 +134,9 @@ describe('UsersService', () => {
     it('should verify a password successfully', async () => {
       bcrypt.compare.mockResolvedValue(true);
 
-      const result = await service.verifyPassword(
-        'password123',
-        'hashedPassword',
-      );
+      const result = await service.verifyPassword('password123', 'hashedPassword');
 
-      expect(bcrypt.compare).toHaveBeenCalledWith(
-        'password123',
-        'hashedPassword',
-      );
+      expect(bcrypt.compare).toHaveBeenCalledWith('password123', 'hashedPassword');
       expect(result).toBe(true);
     });
   });

@@ -10,17 +10,9 @@ import { Location } from '../entities/location.entity';
 import { Transactions } from '../entities/transaction.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      User,
-      Bank,
-      Images,
-      Location,
-      Property,
-      Transactions,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([User, Bank, Images, Location, Property, Transactions])],
   controllers: [UsersController],
   providers: [UsersService],
+  exports: [UsersService],
 })
 export class UsersModule {}
