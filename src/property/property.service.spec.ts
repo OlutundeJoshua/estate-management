@@ -27,9 +27,7 @@ describe('PropertyService', () => {
     }).compile();
 
     service = module.get<PropertyService>(PropertyService);
-    propertyRepo = module.get<Repository<Property>>(
-      getRepositoryToken(Property),
-    );
+    propertyRepo = module.get<Repository<Property>>(getRepositoryToken(Property));
   });
 
   it('should be defined', () => {

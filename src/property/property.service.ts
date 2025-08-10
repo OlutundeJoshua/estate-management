@@ -47,10 +47,7 @@ export class PropertyService {
       images: property.images,
     }));
 
-    return customSuccessResponseWithCode(
-      'Properties retrieved successfully',
-      propertiesResponse,
-    );
+    return customSuccessResponseWithCode('Properties retrieved successfully', propertiesResponse);
   }
 
   async getOneProperty(propertyId: string) {
@@ -74,10 +71,7 @@ export class PropertyService {
       images: property.images,
     };
 
-    return customSuccessResponseWithCode(
-      'Property retrieved successfully',
-      propertiesResponse,
-    );
+    return customSuccessResponseWithCode('Property retrieved successfully', propertiesResponse);
   }
 
   async createProperty(createPropertyDto: CreatePropertyDto) {
@@ -102,10 +96,7 @@ export class PropertyService {
     }
     try {
       await this.propertyRepo.save(property);
-      return customSuccessResponseWithCode(
-        'Successfully created property',
-        property,
-      );
+      return customSuccessResponseWithCode('Successfully created property', property);
     } catch (err) {
       this.log.debug('Error creating property', err);
     }
