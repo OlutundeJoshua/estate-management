@@ -30,22 +30,10 @@ export class User extends TEntity {
   @Column({ name: 'user_type', default: UserType.INDIVIDUAL })
   type: UserType;
 
-  @Column({
-    name: 'promotion_consent',
-    default: 0,
-    type: 'numeric',
-    precision: 1,
-    scale: 0,
-  })
+  @Column({ name: 'promotion_consent', default: 0, type: 'numeric', precision: 1, scale: 0 })
   promotionConsent: number;
 
-  @Column({
-    name: 'is_approved',
-    default: 0,
-    type: 'numeric',
-    precision: 1,
-    scale: 0,
-  })
+  @Column({ name: 'is_approved', default: 0, type: 'numeric', precision: 1, scale: 0 })
   approved: number;
 
   @OneToOne(() => Bank, { nullable: true })
@@ -55,4 +43,10 @@ export class User extends TEntity {
   @OneToOne(() => Location, { nullable: true })
   @JoinColumn({ name: 'location_fk', referencedColumnName: 'pk' })
   location: Location;
+
+  @Column({ name: 'reset_token', nullable: true })
+  resetToken: string;
+
+  @Column({ name: 'reset_token_expires_at', type: 'timestamp', nullable: true })
+  resetTokenExpiresAt: Date;
 }
