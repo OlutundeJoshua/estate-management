@@ -44,10 +44,7 @@ export class UsersService {
       emailAddress: user.emailAddress,
     }));
 
-    return customSuccessResponseWithCode(
-      'Users retrieved successfully',
-      userResponse,
-    );
+    return customSuccessResponseWithCode('Users retrieved successfully', userResponse);
   }
 
   async getUserByEmail(emailAddress: string) {
@@ -64,10 +61,7 @@ export class UsersService {
       lastName: user.lastName,
       userId: user.userId,
     };
-    return customSuccessResponseWithCode(
-      'Users retrieved successfully',
-      userResponse,
-    );
+    return customSuccessResponseWithCode('Users retrieved successfully', userResponse);
   }
 
   async createUser(createuserDto: CreateUserDto) {
@@ -78,9 +72,7 @@ export class UsersService {
       where: { emailAddress: createuserDto.emailAddress },
     });
     if (existingUser) {
-      return customErrorResponseWithCode(
-        'User with email address already exists!',
-      );
+      return customErrorResponseWithCode('User with email address already exists!');
     }
 
     this.log.debug('createuserDto', createuserDto);
@@ -89,7 +81,7 @@ export class UsersService {
     const randomNumber = Math.floor(Math.random() * 1000);
     const userId = parseInt(`${timestamp}${randomNumber}`.slice(0, 10));
     this.log.debug('creating user with Id', userId);
-    let user: User = new User();
+    const user: User = new User();
     user.userId = userId.toString();
     user.firstName = createuserDto.firstName;
     user.lastName = createuserDto.lastName;
@@ -143,5 +135,12 @@ export class UsersService {
     const isMatch = await bcrypt.compare(password, hash);
     return isMatch;
   }
-  
+
+  async findUserEntityByEmail(emailAddress: string): Promise<User | undefined> {
+    return this.usersRepository.findOne({ where: { emailAddress } });
+  }
+
+  async saveUserEntity(user: User): Promise<User> {
+    return this.usersRepository.save(user);
+  }
 }
